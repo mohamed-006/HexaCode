@@ -54,7 +54,7 @@ public class User  implements Serializable{
 	private String location;
 	private String contact_info;
 	private String experience;
-	private int points ;
+	private int points=0 ;
 	@ManyToMany(fetch = EAGER)
 	private Collection<Role> roles = new ArrayList<>();
 	@ManyToOne
@@ -80,7 +80,5 @@ public class User  implements Serializable{
 	private Set<Quizz> quizzes;
 
 
-
-	
 
 }

@@ -55,6 +55,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         log.info("deleting  user {} from database",user.getName());
         userRepo.delete(user);
     }
+
+    @Override
+    public Collection<Role> getRoles(String username) {
+
+            User user = userRepo.findByUsername(username);
+            return user.getRoles() ;
+
+    }
+
+
     @Override
     public User getUser(String username) {
         log.info("fetching user {} ",username);

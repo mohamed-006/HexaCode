@@ -24,6 +24,11 @@ public class BadgeServiceImpl implements BadgeService {
     }
 
     @Override
+    public Badge editBadge(Badge badge) {
+        return badgeRepo.save(badge);
+    }
+
+    @Override
     public void addBadgeToUser(String username) {
         User user = userRepo.findByUsername(username) ;
         List<Badge> badgeList = badgeRepo.findAll();

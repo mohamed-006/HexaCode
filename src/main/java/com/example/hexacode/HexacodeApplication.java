@@ -1,5 +1,6 @@
 package com.example.hexacode;
 
+import com.example.hexacode.Entity.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -42,5 +43,7 @@ public class HexacodeApplication {
                 .version("1.0")
                 .build();
     }
+
+
 
 }

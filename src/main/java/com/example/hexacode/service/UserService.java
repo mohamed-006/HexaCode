@@ -3,6 +3,7 @@ package com.example.hexacode.service;
 import com.example.hexacode.Entity.Role;
 import com.example.hexacode.Entity.User;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface UserService {
@@ -13,4 +14,5 @@ public interface UserService {
     List<User> getUsers();
     User updateUser(User user);
     void deleteUser(String username);
+    Collection<Role> getRoles(String username);
 }
