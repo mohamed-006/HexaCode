@@ -55,6 +55,11 @@ public class User  implements Serializable{
 	private String contact_info;
 	private String experience;
 	private int points=0 ;
+	private int cultural_points=0 ;
+	private int sport_points=0 ;
+	private int art_points=0 ;
+	private int professionel_points=0 ;
+
 	@ManyToMany(fetch = EAGER)
 	private Collection<Role> roles = new ArrayList<>();
 	@ManyToOne
@@ -78,6 +83,9 @@ public class User  implements Serializable{
 
 	@OneToMany
 	private Set<Quizz> quizzes;
+
+	@OneToMany
+	private Set<Trophy> trophies;
 
 
 

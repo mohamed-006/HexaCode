@@ -29,6 +29,18 @@ public class BadgeServiceImpl implements BadgeService {
     }
 
     @Override
+    public String deleteBadge(Long id) {
+       Badge badge= badgeRepo.findById(id).orElse(null) ;
+        if (badge!=null){
+            badgeRepo.delete(badge);
+            return ("badge deleted") ;
+        }
+        else
+            return ("badge not found") ;
+
+    }
+
+    @Override
     public void addBadgeToUser(String username) {
         User user = userRepo.findByUsername(username) ;
         List<Badge> badgeList = badgeRepo.findAll();

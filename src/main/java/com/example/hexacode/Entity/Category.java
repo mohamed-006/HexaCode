@@ -3,8 +3,7 @@ package com.example.hexacode.Entity;
 public enum Category {
 	
 	 CULTURAL,
-	    SPROT,
+	    SPORT,
 	    ARTS,
-	    ENTRAINEMENT,
-	    PROFESSIONEL
+	PROFESSIONAL
 }

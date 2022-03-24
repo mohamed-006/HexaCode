@@ -29,7 +29,8 @@ public class Event  implements Serializable {
 	private String creator;
 	private String Departement;
 	private String location;
-	
+	private int points ;
+	private  Category category; 
 	@ManyToMany(mappedBy="events", cascade = CascadeType.ALL)
 	private Set<User> users;
 
