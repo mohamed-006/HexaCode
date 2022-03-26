@@ -15,4 +15,9 @@ public interface UserService {
     User updateUser(User user);
     void deleteUser(String username);
     Collection<Role> getRoles(String username);
+
+    void updateResetPasswordToken(String token, String email) throws UserNotFoundException ;
+    User getByResetPasswordToken(String token) ;
+    void updatePassword(User user, String newPassword);
+
 }

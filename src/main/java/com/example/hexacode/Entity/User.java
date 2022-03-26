@@ -44,6 +44,7 @@ public class User  implements Serializable{
 	private String lastname;
 	private String username ;
 	private String password ;
+	private String email ;
 
 	@Temporal(TemporalType.DATE)
 	private Date Dob;
@@ -59,6 +60,10 @@ public class User  implements Serializable{
 	private int sport_points=0 ;
 	private int art_points=0 ;
 	private int professionel_points=0 ;
+
+
+	private String resetPasswordToken;
+
 
 	@ManyToMany(fetch = EAGER)
 	private Collection<Role> roles = new ArrayList<>();
