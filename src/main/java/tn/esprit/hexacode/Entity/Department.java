@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,10 +30,10 @@ public class Department   implements Serializable{
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 	    private String nom;
-	    
+	    @JsonIgnore
 	    @OneToMany(cascade = CascadeType.ALL, mappedBy="department")
 		private Set<User> users;
-	    
+	    @JsonIgnore
 	    @OneToMany(cascade = CascadeType.ALL, mappedBy="department1")
 		private Set<Collaborator> collaborator;
 

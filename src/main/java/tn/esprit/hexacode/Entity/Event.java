@@ -29,7 +29,7 @@ public class Event  implements Serializable {
 	private String creator;
 	private String Departement;
 	private String location;
-	
+	private int nbPartipants ;
 	@ManyToMany(mappedBy="events", cascade = CascadeType.ALL)
 	private Set<User> users;
 
@@ -40,4 +40,15 @@ public class Event  implements Serializable {
 	private Collaborator collaborator ;
 	
 
+	@OneToMany(mappedBy = "event")
+	private Set<Reservation> reservation ;
+
+
+	public Event( String location) {
+		super();
+	
+		this.location = location;
+	}
+	
+	
 }

@@ -1,5 +1,6 @@
 package tn.esprit.hexacode.Entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -14,11 +15,15 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventComment {
+public class EventComment implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
+	
     
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;

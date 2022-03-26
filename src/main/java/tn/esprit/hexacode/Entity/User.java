@@ -72,6 +72,12 @@ public class User  implements Serializable{
 	private Set<Quizz> quizzes;
 
 
+	@OneToMany(mappedBy = "user2")
+	private Set<Reservation> reservation ;
+	
+	@OneToMany(mappedBy = "user")
+	private Set<Rating> rating;
+	
 
 	
 
