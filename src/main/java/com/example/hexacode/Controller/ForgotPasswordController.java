@@ -48,7 +48,6 @@ public class ForgotPasswordController {
         } catch (UnsupportedEncodingException | MessagingException e) {
            // model.addAttribute("error", "Error while sending email");
         }
-
         return "yes";
     }
 
