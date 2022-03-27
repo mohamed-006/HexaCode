@@ -24,6 +24,8 @@ public class Messages implements Serializable {
     private Long id;
     private Date send_Date;
     private Date read_Date;
+    
+    private String test;
 
     @ManyToMany
     private Set<User> users;
