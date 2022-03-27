@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletRequest;
+
 import java.io.UnsupportedEncodingException;
 
 @Controller @Slf4j
@@ -30,11 +30,6 @@ public class ForgotPasswordController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/forgot_passworddd")
-    public String showForgotPasswordForm() {
-        return "forgot_password_form";
-
-    }
 
     @PostMapping("/forgot_password/{id}")
     public String processForgotPassword(@PathVariable Long id ) {
@@ -46,7 +41,7 @@ public class ForgotPasswordController {
             userService.updateResetPasswordToken(token, email);
             String resetPasswordLink =  "reset_password?token=" + token;
             sendEmail(email, resetPasswordLink);
-           // model.addAttribute("message", "We have sent a reset password link to your email. Please check.");
+
 
         } catch (UserNotFoundException ex) {
         //    model.addAttribute("error", ex.getMessage());
@@ -83,23 +78,11 @@ public class ForgotPasswordController {
     }
 
 
-    @GetMapping("/reset_password")
-    public String showResetPasswordForm(@Param(value = "token") String token, Model model) {
-        User user = userService.getByResetPasswordToken(token);
-        model.addAttribute("token", token);
-
-        if (user == null) {
-            model.addAttribute("message", "Invalid Token");
-            return "message";
-        }
-
-        return "reset_password_form";
-    }
 
     @PostMapping("/reset_password")
     public String processResetPassword(@RequestParam(name="token") String token ,@RequestBody String password) {
 
-        log.info("intered in resert password ");
+        log.info("intered in reset password ");
         User user = userService.getByResetPasswordToken(token);
 
 
