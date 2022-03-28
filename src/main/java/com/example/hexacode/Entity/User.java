@@ -80,11 +80,7 @@ public class User  implements Serializable{
 	@OneToMany
 	private Set<Subject> subject;
 
-	@OneToMany
-	private Set<Article> articles;
 
-	@ManyToMany
-	private Set<Messages> messages;
 
 	@OneToMany
 	private Set<Quizz> quizzes;
@@ -93,5 +89,19 @@ public class User  implements Serializable{
 	private Set<Trophy> trophies;
 
 
+	@OneToMany(mappedBy = "sender")
+	private Set<Messages> messages1;
 
+	@OneToMany(mappedBy = "receiver")
+	private Set<Messages> messages2;
+
+	@OneToMany
+	private Set<Article> articles;
+
+	@OneToMany
+	private Set<CommentsLikes> commentslikes ;
+
+
+	@OneToMany(mappedBy = "user")
+	private Set<Article_Comment> article_commentSet;
 }

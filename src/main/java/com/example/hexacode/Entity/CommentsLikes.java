@@ -7,25 +7,28 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Messages implements Serializable {
-
+public class CommentsLikes implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String contenu  ;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int id;
+
+    private boolean isLiked;
+
+    @Enumerated(EnumType.STRING)
+    private TypeOfLikes Likes;
+
 
     @ManyToOne
-    User sender;
+    User user ;
+
     @ManyToOne
-    User receiver ;
+    Article_Comment article_comment ;
 }

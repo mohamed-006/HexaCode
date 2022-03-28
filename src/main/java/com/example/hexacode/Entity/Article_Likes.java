@@ -1,5 +1,6 @@
 package com.example.hexacode.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,24 +9,28 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Messages implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+public class Article_Likes implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String contenu  ;
+    @Temporal(TemporalType.DATE)
+    private Date date;
+    private boolean clic_like ;
+
+    @Enumerated(EnumType.STRING)
+    private ReactARTICLE react ;
 
     @ManyToOne
-    User sender;
+    @JsonIgnore
+    Article articles;
+
     @ManyToOne
-    User receiver ;
+    @JsonIgnore
+    User users;
 }

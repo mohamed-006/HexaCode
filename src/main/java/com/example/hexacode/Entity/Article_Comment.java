@@ -24,7 +24,12 @@ public class Article_Comment implements Serializable {
     private Long id;
     private String text;
     private String author;
+    @Temporal(TemporalType.DATE)
     private Date date;
+    private boolean clic_comment ;
     @ManyToOne
     private Article article;
+
+    @ManyToOne
+    User user;
 }
