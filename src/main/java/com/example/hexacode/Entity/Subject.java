@@ -1,6 +1,7 @@
-package com.example.hexacode.Entity;
+package tn.esprit.hexacode.Entity;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
+
 import java.util.Set;
 
 import javax.persistence.*;
@@ -23,7 +24,7 @@ private static final long serialVersionUID = 1L;
 private Long id;
 private String title;
 private String subtitle;
-private Date date;
+private LocalDateTime date;
 private boolean status;
 
 @ManyToOne

@@ -1,4 +1,4 @@
-package com.example.hexacode.Entity;
+package tn.esprit.hexacode.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,8 +7,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Set;
+import java.time.LocalDateTime;
+
+
 
 @Getter
 @Setter
@@ -16,13 +17,14 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 public class Response implements Serializable {
+	private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
-    private Long nb_Like;
-    private Date date;
+    private Long nbLike;
+    private LocalDateTime date;
 
     @ManyToOne
     private Subject subject;
