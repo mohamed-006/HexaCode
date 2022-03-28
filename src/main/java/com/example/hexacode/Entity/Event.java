@@ -31,12 +31,19 @@ public class Event  implements Serializable {
 	private String location;
 	private int points ;
 	private  Category category; 
+        private int nbPartipants ;
 	@ManyToMany(mappedBy="events", cascade = CascadeType.ALL)
 	private Set<User> users;
 
+         
 	@OneToMany(mappedBy = "event")
 	private Set<EventComment> eventComment;
 	
+	@ManyToOne 
+	private Collaborator collaborator ;
 	
+
+	@OneToMany(mappedBy = "event")
+	private Set<Reservation> reservation ;
 
 }

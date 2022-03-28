@@ -66,4 +66,6 @@ public class MailController {
 
         return "Email Sent!";
     }
+
+
 }
