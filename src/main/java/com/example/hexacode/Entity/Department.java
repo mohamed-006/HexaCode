@@ -35,5 +35,7 @@ public class Department   implements Serializable{
 	    @OneToMany(cascade = CascadeType.ALL, mappedBy="department1")
 		private Set<Collaborator> collaborator;
 
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="department2")
+	private Set<Article> article ;
 
 }
