@@ -104,4 +104,11 @@ public class User  implements Serializable{
 
 	@OneToMany(mappedBy = "user")
 	private Set<Article_Comment> article_commentSet;
+
+       @OneToMany(mappedBy = "user2")
+	private Set<Reservation> reservation ;
+	
+	@OneToMany(mappedBy = "user")
+	private Set<Rating> rating;
+	
 }
