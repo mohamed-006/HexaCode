@@ -17,28 +17,12 @@ public class Quiz implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idQuiz;
-    @Size(min = 2, max = 100, message = "The name must be between 2 and 100 messages.")
-    @NotNull(message = "Please provide a name")
-    private String name;
-    @Size(min = 2, max = 100, message = "The name must be between 2 and 100 messages.")
-    @NotNull(message = "Please provide a name")
+    private Long id;
+    private String quiz;
     private String response1;
-    @Size(min = 2, max = 100, message = "The name must be between 2 and 100 messages.")
-    @NotNull(message = "Please provide a name")
     private String response2;
-    @Size(min = 2, max = 100, message = "The name must be between 2 and 100 messages.")
-    @NotNull(message = "Please provide a name")
     private String response3;
-    @Size(min = 2, max = 100, message = "The name must be between 2 and 100 messages.")
-    @NotNull(message = "Please provide a name")
     private String CorrectAnswer;
-    @Size(min = 2, max = 100, message = "The name must be between 2 and 100 messages.")
-    @NotNull(message = "Please provide a name")
-    private String response;
-    @Size(min = 2, max = 100, message = "The name must be between 2 and 100 messages.")
-    @NotNull(message = "Please provide a name")
-    private String theme;
 
     @ManyToOne
     @JsonIgnore

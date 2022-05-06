@@ -6,19 +6,28 @@ import tn.esprit.hexacode.Entity.Theme;
 import tn.esprit.hexacode.Repository.ThemeRepository;
 import tn.esprit.hexacode.Service.ThemeService;
 
+import java.util.List;
+
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class ThemeController {
     @Autowired
     ThemeService themeService;
-//    @Autowired
-//    ThemeRepository themeRepository;
-
     @PostMapping("/addTheme")
-    public Theme addTheme(@RequestBody Theme theme){
+    @CrossOrigin(origins = "http://localhost:4200")
+    public Theme addTheme(@RequestBody Theme theme) {
         return themeService.addTheme(theme);
     }
-    @DeleteMapping("deleteTheme/{idTheme}")
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/getThemes")
+    public List<Theme> getThemes() {
+        return themeService.getThemes();
+    }
+    @GetMapping("/deleteTheme/{idTheme}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public void deleteTheme(@PathVariable Long idTheme){
         themeService.deleteTheme(idTheme);
     }
+
 }

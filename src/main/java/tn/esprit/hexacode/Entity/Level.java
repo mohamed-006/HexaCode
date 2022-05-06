@@ -5,7 +5,9 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 @Entity @Getter @Setter @Data
 @AllArgsConstructor @NoArgsConstructor
@@ -19,16 +21,16 @@ public class Level implements Serializable {
     private String difficulty;
     @OneToMany(mappedBy = "level", cascade  = CascadeType.ALL)
     @JsonIgnore
-    private Set<Quiz> quizz_question;
+    private List<Question> questions;
     @ManyToOne
     @JsonIgnore
     private Theme theme;
 
-    public void addQuestion(Quiz quizzQuestion) {
-        if(getQuizz_question()==null){
-            this.quizz_question = new HashSet<>();
+    public void addQuestion(Question question) {
+        if(getQuestions()==null){
+            this.questions = new ArrayList<>();
         }
-        getQuizz_question().add(quizzQuestion);
-        quizzQuestion.setLevel(this);
+        getQuestions().add(question);
+        question.setLevel(this);
     }
 }

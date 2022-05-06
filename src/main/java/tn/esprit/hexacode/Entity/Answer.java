@@ -1,26 +1,21 @@
 package tn.esprit.hexacode.Entity;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.Hibernate;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-@EqualsAndHashCode
 public class Answer implements Serializable {
 
     public static final Long SerialVersionUID=1L;
@@ -29,56 +24,22 @@ public class Answer implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long idanswer;
 
-    private String answerorder;
-
-    private String answertext;
-
-
+    private String total;
 
     @ManyToOne
     @JsonIgnore
     private Question question;
 
-
-
-    public Answer(String answerorder) {
-        super();
-        this.answerorder = answerorder;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Answer answer = (Answer) o;
+        return idanswer != null && Objects.equals(idanswer, answer.idanswer);
     }
 
-
-
-    public Answer(String answerorder,
-                  String answertext) {
-        super();
-        this.answerorder = answerorder;
-        this.answertext = answertext;
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
-
-
-
-    public Answer(String answerorder,
-                  String answertext,
-                  Question question) {
-        super();
-        this.answerorder = answerorder;
-        this.answertext = answertext;
-        this.question = question;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

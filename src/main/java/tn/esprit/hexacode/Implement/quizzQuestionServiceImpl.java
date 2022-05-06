@@ -1,4 +1,4 @@
-package tn.esprit.hexacode.Service;
+package tn.esprit.hexacode.Implement;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,13 +9,14 @@ import tn.esprit.hexacode.Entity.User;
 import tn.esprit.hexacode.Entity.Quiz;
 import tn.esprit.hexacode.Repository.LevelRepository;
 import tn.esprit.hexacode.Repository.quizzQuestionRepository;
+import tn.esprit.hexacode.Service.quizzQuestionService;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 @Transactional
-public class quizzQuestionServiceImpl implements quizzQuestionService{
+public class quizzQuestionServiceImpl implements quizzQuestionService {
 
     private JavaMailSender mailSender;
     public void setMailSender(JavaMailSender mailSender) {

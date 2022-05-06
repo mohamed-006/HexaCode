@@ -14,6 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 @EqualsAndHashCode
 public class Question implements Serializable {
@@ -21,45 +22,21 @@ public class Question implements Serializable {
     public static final Long SerialVersionUID=1L;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long idQuestion;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private Long questionorder;
-    @Size(min = 2, max = 100, message = "The name must be between 2 and 100 messages.")
-    @NotNull(message = "Please provide a name")
-    private String questiontext;
+    private String question;
 
+    private String response1;
 
-    private Boolean isvalid = false;
+    private String response2;
 
-    @Size(min = 2, max = 100, message = "The name must be between 2 and 100 messages.")
-    @NotNull(message = "Please provide a name")
-    private String answer;
+    private String response3;
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Answer> answers;
+    private String correct;
 
     @ManyToOne
-    @JoinColumn(name = "quiz_id_quiz")
-    private Quiz quiz;
-//
-//
-//    public Question(Integer questionorder,
-//                    String questiontext) {
-//        super();
-//        this.questionorder = questionorder;
-//        this.questiontext = questiontext;
-//    }
-//
-//
-//    public Question(Integer questionorder,
-//                    String questiontext,
-//                    Boolean isvalid) {
-//        super();
-//        this.questionorder = questionorder;
-//        this.questiontext = questiontext;
-//        this.isvalid = isvalid;
-//    }
+    @JsonIgnore
+    private Level level;
 
 }

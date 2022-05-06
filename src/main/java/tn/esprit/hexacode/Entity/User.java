@@ -36,6 +36,7 @@ public class User implements Serializable {
     private String contact_info;
     private String experience;
     private Long points ;
+    private boolean etat = false;
 
     @OneToMany
     private Set<Quiz> question;
