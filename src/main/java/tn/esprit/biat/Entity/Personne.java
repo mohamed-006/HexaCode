@@ -28,7 +28,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User  implements Serializable{
+public class Personne implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
     
@@ -47,36 +47,6 @@ public class User  implements Serializable{
 	private String contact_info;
 	private String experience;
 	private Long points ; 
-	@Enumerated
-	private Role Role;
-	@ManyToOne
-	private Badge badge ; 
-	@ManyToOne
-	private Department department ; 
-	
-	@ManyToMany
-	private Set<Interest> activity ;
-	@ManyToMany(cascade = CascadeType.ALL)
-	private Set<Event> events ; 
-
-	@OneToMany
-	private Set<Subject> subject;
-
-	@OneToMany
-	private Set<Article> articles;
-
-	@ManyToMany
-	private Set<Messages> messages;
-
-	@OneToMany
-	private Set<Quizz> quizzes;
-
-
-	@OneToMany(mappedBy = "user2")
-	private Set<Reservation> reservation ;
-	
-	@OneToMany(mappedBy = "user")
-	private Set<Rating> rating;
 	
 
 	
